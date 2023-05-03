@@ -1,10 +1,15 @@
 import datetime
+from os import environ
 from pathlib import Path
+from dotenv import load_dotenv
 
 import telebot
 from telebot import types
 
-bot = telebot.TeleBot("1671490286:AAEM2tPzf4WvH_k0HN04LxzD2rooWHVnbcc")
+load_dotenv(Path('.env'))
+
+bot = telebot.TeleBot(environ.get('TOKEN'))
+
 data_ = {
     '9009': {
         1: {'text': "1 неделя", 'callback_data': "pod is1"},
@@ -49,7 +54,6 @@ call_dict = {
     "m1900p": "https://drive.google.com/drive/folders/16Z_5nzC9xsgQYSHaLn8lJhqdlgZAl3Lt",
     "m2200": "https://drive.google.com/drive/folders/1NDPgIUmcAWG7Xr6DdIiYAxWkXcut1aDP"
 }
-date_start = datetime.datetime.now().date()
 
 
 def set_date_start():
